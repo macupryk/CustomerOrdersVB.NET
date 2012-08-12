@@ -1,0 +1,50 @@
+#OS junk files
+[Tt]humbs.db
+*.DS_Store
+
+#Visual Studio files
+*.user
+*.aps
+*.pch
+*.vspscc
+*.vssscc
+*.suo
+*.bak
+*.log
+*.[Cc]ache
+[Oo]bj
+[Bb]in
+[Dd]ebug*/
+[Rr]elease*/
+[Ll]ogs*/
+d
+#Tooling
+_ReSharper*/
+*.resharper
+[Tt]est[Rr]esult*
+*.dotCover
+
+#Project files
+[Bb]uild/
+Spring.Net.snk
+
+#Subversion files
+.svn
+
+# Office Temp Files
+~$*
+
+#Documentation output
+doc/reference/target/
+
+#Build log
+buildlog.txt
+
+# XMLmind temporary files
+*.xml~
+
+#NuGet
+#packages
+
+#Sql
+*.sql
