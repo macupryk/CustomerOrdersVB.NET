@@ -1,7 +1,7 @@
 CustomerOrders_ASPNETMVC3
 =========================
 
-Example application using [ASP.NET Mvc3][1] and [Dapper][2].  Adapted from a [Spring.NET example application][3].  Written in VB 10. 
+Example application using [ASP.NET Mvc3][1] and [Dapper][2].  Adapted from a [Spring.NET example application][3].  Written in VB 10 and distributed under the [Apache license version 2][8] 
     
 The example uses stored procedures created for a [MySQL][5] implementation of the Northwind database.  As impractical as they are, this is just an example application and serves the purpose.
 
@@ -14,3 +14,4 @@ TODO:
 [3]: https://github.com/SpringSource/spring-net/tree/master/examples/Spring/Spring.Data.NHibernate.Northwind 
 [4]: http://xunit.codeplex.com 
 [5]: http://www.mysql.com
+[6]: https://github.com/WillSams/CustomerOrders_ASPNETMVC3/blob/master/license.txt
