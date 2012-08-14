@@ -34,15 +34,15 @@ Namespace Core.DataAccess
             Return connection
         End Function
 
-        Public Function GetModelData(storedProcName As String, params As DynamicParameters) As IList(Of T)
+        Public Function GetModelData(query As String, params As DynamicParameters, cmdType As CommandType) As IList(Of T)
             Using cn As IDbConnection = OpenConnection()
-                Return cn.Query(Of T)(storedProcName, params, commandType:=CommandType.StoredProcedure)
+                Return cn.Query(Of T)(query, params, commandType:=cmdType)
             End Using
         End Function
 
-        Public Function ExecuteDataManipulation(storedProcName As String, params As DynamicParameters) As Integer
+        Public Function ExecuteDataManipulation(query As String, params As DynamicParameters, cmdType As CommandType) As Integer
             Using cn As IDbConnection = OpenConnection()
-                Return cn.Execute(storedProcName, params, commandType:=CommandType.StoredProcedure)
+                Return cn.Execute(query, params, commandType:=cmdType)
             End Using
         End Function
     End Class
@@ -58,11 +58,11 @@ Namespace Core.DataAccess
             Dim paramsList = New DynamicParameters
             paramsList.Add("@CustomerId", id)
 
-            Return Me.GetModelData("GetCustomerById", paramsList)(0)
+            Return Me.GetModelData("GetCustomerById", paramsList, CommandType.StoredProcedure)(0)
         End Function
 
         Public Function GetAll() As IList(Of Models.Customer)
-            Return Me.GetModelData("GetAllCustomers", Nothing)
+            Return Me.GetModelData("GetAllCustomers", Nothing, CommandType.StoredProcedure)
         End Function
 
         Public Function Update(customer As Models.Customer) As Boolean
@@ -79,7 +79,7 @@ Namespace Core.DataAccess
             paramsList.Add("@Phone", customer.Phone)
             paramsList.Add("@Fax", customer.Fax)
 
-            Return CBool(Me.ExecuteDataManipulation("UpdateCustomer", paramsList))
+            Return CBool(Me.ExecuteDataManipulation("UpdateCustomer", paramsList, CommandType.StoredProcedure))
         End Function
     End Class
 
@@ -94,7 +94,7 @@ Namespace Core.DataAccess
             Dim paramsList = New DynamicParameters
             paramsList.Add("@CustomerId", customerId)
 
-            Return Me.GetModelData("GetAllOrdersForCustomer", paramsList)
+            Return Me.GetModelData("GetAllOrdersForCustomer", paramsList, CommandType.StoredProcedure)
         End Function
 
         Public Function Update(order As Models.Order) As Boolean
@@ -109,7 +109,7 @@ Namespace Core.DataAccess
             paramsList.Add("@ShipPostalCode", order.ShipPostalCode)
             paramsList.Add("@ShipCountry", order.ShipCountry)
 
-            Return CBool(Me.ExecuteDataManipulation("UpdateOrder", paramsList))
+            Return CBool(Me.ExecuteDataManipulation("UpdateOrder", paramsList, CommandType.StoredProcedure))
         End Function
     End Class
 End Namespace
