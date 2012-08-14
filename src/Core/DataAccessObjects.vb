@@ -79,7 +79,8 @@ Namespace Core.DataAccess
             paramsList.Add("@Phone", customer.Phone)
             paramsList.Add("@Fax", customer.Fax)
 
-            Return CBool(Me.ExecuteDataManipulation("UpdateCustomer", paramsList, CommandType.StoredProcedure))
+            Dim ret = CBool(Me.ExecuteDataManipulation("UpdateCustomer", paramsList, CommandType.StoredProcedure))
+            Return (ret = 1)
         End Function
     End Class
 
@@ -109,7 +110,8 @@ Namespace Core.DataAccess
             paramsList.Add("@ShipPostalCode", order.ShipPostalCode)
             paramsList.Add("@ShipCountry", order.ShipCountry)
 
-            Return CBool(Me.ExecuteDataManipulation("UpdateOrder", paramsList, CommandType.StoredProcedure))
+            Dim ret = CBool(Me.ExecuteDataManipulation("UpdateOrder", paramsList, CommandType.StoredProcedure))
+            Return (ret = 1)
         End Function
     End Class
 End Namespace
