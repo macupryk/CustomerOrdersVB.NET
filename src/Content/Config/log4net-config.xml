@@ -29,18 +29,17 @@
         <!-- simple appender to get results to UI -->
     </appender>
 
-    <!-- Set default logging level to DEBUG -->
+    <root>
+        <level value="ERROR" />
+        <appender-ref ref="RollingFileAppender" />
+    </root>
+
     <root>
         <level value="DEBUG" />
         <appender-ref ref="AspNetTraceAppender" />
         <appender-ref ref="TraceAppender" />
-        <appender-ref ref="RollingFileAppender" />
     </root>
 
-    <!--
-		there is a 1-1 correspondence between the logger name and
-		the namespace of the class doing the logging...
-	-->
     <logger name="App">
         <level value="DEBUG" />
     </logger>
