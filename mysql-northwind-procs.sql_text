@@ -1,0 +1,93 @@
+use `northwinddb`;
+drop procedure if exists `GetCustomerById`;
+drop procedure if exists `UpdateCustomer`;
+drop procedure if exists `GetAllOrdersForCustomer`;
+drop procedure if exists `GetAllCustomers`;
+
+DELIMITER GO
+
+use `northwinddb`;
+GO
+create procedure `GetCustomerById` (in in_customerId varchar(5))
+begin
+    select CustomerID, CompanyName, ContactName, ContactTitle, 
+        Address, City, Region, PostalCode, Country, Phone, Fax
+    from customers 
+    where CustomerId = in_customerId;
+end
+GO
+call GetCustomerById ('ALFKI'); 
+GO
+
+-- ///////////////////////////////////////////////////////////////////
+use `northwinddb`;
+GO
+create procedure `UpdateCustomer` (in in_customerId varchar(5), 
+											in in_companyName varchar(40),
+											in in_contactName varchar(30),
+											in in_contactTitle varchar(30),
+											in in_address varchar(60),
+											in in_city varchar(15),
+											in in_region varchar(15),
+											in in_postalCode varchar(10),
+											in in_country varchar(15),
+											in in_phone varchar(24),
+											in in_fax varchar(24))
+begin   
+    if in_companyName = null then set in_companyName = ''; end if;
+    if in_contactName = null then set in_contactName = ''; end if;
+    if in_contactTitle = null then set in_contactTitle = ''; end if;
+    if in_address = null then set in_address = ''; end if;
+    if in_city = null then set in_city = ''; end if;
+    if in_region = null then set in_region = ''; end if;
+    if in_postalCode = null then set in_postalCode = ''; end if;
+    if in_country = null then set in_country = ''; end if;
+    if in_phone = null then set in_phone= ''; end if;
+    if in_fax = null then set in_fax = ''; end if;
+    
+    set sql_safe_updates = 0;
+
+    update customers
+    set CompanyName = in_companyName, ContactName = in_contactName, 
+        ContactTitle = in_contactTitle, Address = in_address, City = in_city, 
+        Region = in_region, PostalCode = in_postalCode, Country = in_country, 
+        Phone = in_phone, Fax = in_fax
+    where CustomerID = in_customerId;
+end
+GO
+
+-- call UpdateCustomer('ALFKI', 'test', '', '', '', '', '', '', '', '', '');
+GO
+
+-- ///////////////////////////////////////////////////////////////////
+use `northwinddb`;
+GO
+create procedure `GetAllOrdersForCustomer` (in in_customerId varchar(5))
+begin
+    select OrderID, OrderDate, RequiredDate, ShippedDate, CustomerID, 
+        Freight, ShipName, ShipAddress, ShipCity, ShipRegion, 
+        ShipPostalCode, ShipCountry
+    from orders
+    where CustomerID = in_customerId;
+end
+GO
+
+call GetAllOrdersForCustomer('ALFKI');
+GO
+-- ///////////////////////////////////////////////////////////////////
+use `northwinddb`;
+GO
+create procedure `GetAllCustomers`()
+begin
+    select CustomerID, CompanyName, ContactName, ContactTitle,
+        Address, City, Region, PostalCode, Country, Phone, Fax
+    from customers;
+end
+GO
+call GetAllCustomers ();
+GO
+
+DELIMITER ;
+
+
+

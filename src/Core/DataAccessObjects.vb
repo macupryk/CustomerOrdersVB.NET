@@ -56,7 +56,7 @@ Namespace Core.DataAccess
 
         Public Function [Get](id As String) As Models.Customer
             Dim paramsList = New DynamicParameters
-            paramsList.Add("@CustomerId", id)
+            paramsList.Add("@in_CustomerId", id)
 
             Return Me.GetModelData("GetCustomerById", paramsList, CommandType.StoredProcedure)(0)
         End Function
@@ -67,19 +67,19 @@ Namespace Core.DataAccess
 
         Public Function Update(customer As Models.Customer) As Boolean
             Dim paramsList = New DynamicParameters
-            paramsList.Add("@CustomerId", customer.CustomerId)
-            paramsList.Add("@CompanyName", customer.CompanyName)
-            paramsList.Add("@ContactName", customer.ContactName)
-            paramsList.Add("@ContactTitle", customer.ContactTitle)
-            paramsList.Add("@Address", customer.Address)
-            paramsList.Add("@City", customer.City)
-            paramsList.Add("@Region", customer.Region)
-            paramsList.Add("@PostalCode", customer.PostalCode)
-            paramsList.Add("@Country", customer.Country)
-            paramsList.Add("@Phone", customer.Phone)
-            paramsList.Add("@Fax", customer.Fax)
+            paramsList.Add("@in_CustomerId", customer.CustomerId)
+            paramsList.Add("@in_CompanyName", customer.CompanyName)
+            paramsList.Add("@in_ContactName", customer.ContactName)
+            paramsList.Add("@in_ContactTitle", customer.ContactTitle)
+            paramsList.Add("@in_Address", customer.Address)
+            paramsList.Add("@in_City", customer.City)
+            paramsList.Add("@in_Region", customer.Region)
+            paramsList.Add("@in_PostalCode", customer.PostalCode)
+            paramsList.Add("@in_Country", customer.Country)
+            paramsList.Add("@in_Phone", customer.Phone)
+            paramsList.Add("@in_Fax", customer.Fax)
 
-            Dim ret = CBool(Me.ExecuteDataManipulation("UpdateCustomer", paramsList, CommandType.StoredProcedure))
+            Dim ret = Me.ExecuteDataManipulation("UpdateCustomer", paramsList, CommandType.StoredProcedure)
             Return (ret = 1)
         End Function
     End Class
@@ -93,22 +93,22 @@ Namespace Core.DataAccess
 
         Public Function GetAllForCustomer(customerId As String) As IList(Of Models.Order)
             Dim paramsList = New DynamicParameters
-            paramsList.Add("@CustomerId", customerId)
+            paramsList.Add("@in_customerId", customerId)
 
             Return Me.GetModelData("GetAllOrdersForCustomer", paramsList, CommandType.StoredProcedure)
         End Function
 
         Public Function Update(order As Models.Order) As Boolean
             Dim paramsList = New DynamicParameters
-            paramsList.Add("@OrderId", order.OrderId)
-            paramsList.Add("@CustomerId", order.CustomerId)
-            paramsList.Add("@Freight", order.Freight)
-            paramsList.Add("@ShipName", order.ShipName)
-            paramsList.Add("@ShipAddress", order.ShipAddress)
-            paramsList.Add("@ShipCity", order.ShipCity)
-            paramsList.Add("@ShipRegion", order.ShipRegion)
-            paramsList.Add("@ShipPostalCode", order.ShipPostalCode)
-            paramsList.Add("@ShipCountry", order.ShipCountry)
+            paramsList.Add("@in_OrderId", order.OrderId)
+            paramsList.Add("@in_CustomerId", order.CustomerId)
+            paramsList.Add("@in_Freight", order.Freight)
+            paramsList.Add("@in_ShipName", order.ShipName)
+            paramsList.Add("@in_ShipAddress", order.ShipAddress)
+            paramsList.Add("@in_ShipCity", order.ShipCity)
+            paramsList.Add("@in_ShipRegion", order.ShipRegion)
+            paramsList.Add("@in_ShipPostalCode", order.ShipPostalCode)
+            paramsList.Add("@in_ShipCountry", order.ShipCountry)
 
             Dim ret = CBool(Me.ExecuteDataManipulation("UpdateOrder", paramsList, CommandType.StoredProcedure))
             Return (ret = 1)
