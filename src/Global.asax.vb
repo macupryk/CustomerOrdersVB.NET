@@ -19,23 +19,8 @@ Public Class MvcApplication
     Shared Sub RegisterRoutes(ByVal routes As RouteCollection)
         routes.IgnoreRoute("{resource}.axd/{*pathInfo}")
 
-        routes.MapRoute(
-            "Orders",
-            "{controller}/{action}/{customerId}/{customerName}",
-            New With {.controller = "Orders", .action = "Process", .customerId = String.Empty, .customerName = String.Empty}
-        )
-
-        routes.MapRoute(
-            "Home",
-            "{controller}/{action}",
-            New With {.controller = "Home", .action = "Index"}
-        )
-
-        routes.MapRoute(
-            "Default",
-            "{controller}/{action}",
-            New With {.controller = "Home", .action = "Index"}
-        )
+        RouteTable.Routes.RouteExistingFiles = True
+        AppRoutes.MapRoutes(RouteTable.Routes)
     End Sub
 
     Sub Application_Start()

@@ -20,7 +20,7 @@
             </fieldset>
         </div>
         <div class="actionPanel">
-            @Html.ActionLink(Server.HtmlDecode("&laquo; Back to customer list"), "List")
+            @Html.ActionLink(Server.HtmlDecode("&laquo; Back to customer list"), "List", "Customers")
             @Html.ActionLink(Server.HtmlDecode("Edit Customer &raquo;"), "Edit", New With {.customerId = Model.CustomerId})
         </div>
     </div>

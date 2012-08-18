@@ -29,15 +29,15 @@
         <input type="hidden" id="HID_OriginalName" value="@Model.ContactName" />
 
         <div class="actionPanel">
-            @Html.ActionLink(Server.HtmlDecode("&laquo; Back to customer list"), "List")
+            @Html.ActionLink(Server.HtmlDecode("&laquo; Back to customer list"), "List", "Customers")
             <a href="#" onclick="cancelEdit();">Reset Edit &raquo;</a>
         </div>
     </div>
 End section
 
 @Section ScriptsContent
-    <script type="text/javascript" src="@Url.Content("http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js")"></script>
-    <script type="text/javascript" src="@Url.Content("http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js")"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/Scripts/jquery.metadata.min.js")"></script>
     <script type="text/javascript" >
         function cancelEdit() {

@@ -108,6 +108,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="JsonDotNetResult.vb" />
+    <Compile Include="AppRoutes.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="i18n\AppStrings.en.resx" />
