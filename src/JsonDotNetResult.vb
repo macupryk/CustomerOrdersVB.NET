@@ -6,9 +6,6 @@ Imports App.Core
 Public Class JsonDotNetResult
     Inherits JsonResult
 
-    ReadOnly _index As Integer
-    ReadOnly _size As Integer
-
     Public Sub New()
         JsonRequestBehavior = JsonRequestBehavior.DenyGet
     End Sub
