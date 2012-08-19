@@ -35,7 +35,7 @@ End Section
         $(function () {
             $('#ordersList').jqGrid({
                 width: '100%',
-                url: 'FillOrdersGrid/@ViewData("CustomerId")',
+                url: '@Request.ApplicationPath/Orders/FillOrdersGrid/@ViewData("CustomerId")',
                 datatype: 'json',
                 jsonReader: { repeatitems: false },
                 mtype: 'GET',
@@ -56,9 +56,9 @@ End Section
                     _appCommon.JqGridLoadError(this, jqXHR, textStatus, errorThrown);
                 },
                 loadComplete: function () {
-                    _appCommon.JqGridLoadComplete(this);
+                    // remove error div if exist
+                    $('#' + this.id + '_err').remove();
                 }
-
             });
         });
 

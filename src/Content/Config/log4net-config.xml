@@ -30,21 +30,18 @@
     </appender>
 
     <root>
-        <level value="ERROR" />
-        <appender-ref ref="RollingFileAppender" />
-    </root>
-
-    <root>
         <level value="DEBUG" />
         <appender-ref ref="AspNetTraceAppender" />
         <appender-ref ref="TraceAppender" />
+        <appender-ref ref="RollingFileAppender" />
     </root>
 
     <logger name="App">
-        <level value="DEBUG" />
+        <level value="INFO" />
+        <appender-ref ref="MemoryAppender" />
     </logger>
 
-    <logger name="App.Modules">
+    <logger name="App.Core">
         <level value="INFO" />
         <appender-ref ref="MemoryAppender" />
     </logger>
