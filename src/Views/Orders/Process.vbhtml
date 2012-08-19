@@ -3,20 +3,24 @@
 End Section
 
 @Section MainContent
-    <h1>@ViewData("ProcessOrdersFor") <strong>@ViewData("CustomerName")</strong></h1>
+    <form id="ProcessForm" action="process" method=post>
+        <h1>@ViewData("ProcessOrdersFor") <strong>@ViewData("ContactName")</strong></h1>
 
-    <p>@ViewData("Process")</p>
+        <p>@ViewData("Process")</p>
 
-    <div align="center">
-        <table id="ordersList" class="scroll" cellpadding="0" cellspacing="0"></table>
-        <div id="pager" class="scroll" style="text-align:center;"></div>    
+        <div align="center">
+            <table id="ordersList" class="scroll" cellpadding="0" cellspacing="0"></table>
+            <div id="pager" class="scroll" style="text-align:center;"></div>    
         
-        <button id="btnProcess">Process Orders</button>
+            <input type="submit" value="Process Orders" />
 
-        <div class="actionPanel">
-            @Html.ActionLink("Back to customer listing", "List", "Customers")
+            <div class="actionPanel">
+                @Html.ActionLink("Back to customer listing", "List", "Customers")
+            </div>
         </div>
-    </div>
+        <input type="hidden" id="CustomerId" name="CustomerId" value="@ViewData("CustomerId")" />
+        <input type="hidden" id="ContactName" name="ContactName" value="@ViewData("ContactName")" />
+    </form>
 End Section
 
 @Section ScriptsContent
@@ -28,20 +32,10 @@ End Section
     <script type="text/javascript" src="@Url.Content("~/Content/Scripts/jqGrid/jquery.jqGrid.min.js")"></script>
   
     <script type="text/javascript">
-        $('#btnProcess').click(function () {
-            var url = '@Url.Action("Process")'
-            $.post(url, null,
-                    function (result) {
-                        window.location = '@Url.Action("ProcessResult")';
-                    });
-            return false;
-        });
-
-
         $(function () {
             $('#ordersList').jqGrid({
                 width: '100%',
-                url: '/Orders/FillOrdersGrid/@ViewData("CustomerId")',
+                url: 'FillOrdersGrid/@ViewData("CustomerId")',
                 datatype: 'json',
                 jsonReader: { repeatitems: false },
                 mtype: 'GET',

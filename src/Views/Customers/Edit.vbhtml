@@ -1,38 +1,43 @@
 ﻿@Section MainContent
-    <h1>Update customer information</h1>
-    <div align="center">
-        <div>
-            <fieldset>
-                <legend>Customer details</legend>
-                <table>
-                    <tr>
-                        <td class="formLabelCell">ID:</td>
-                        <td class="formValueCell">
-                            @Model.CustomerId
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="formLabelCell">Contact:</td>
-                        <td class="formValueCell">
-                            @Html.TextBoxFor(Function(m) m.ContactName, New With {.class = "{required:true, messages:{required:'User name is required'}}"})
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: right; padding-top: 10px">
-                            <button id="btnSave">Save</button>
-                        </td>
-                    </tr>
-                </table>
-            </fieldset>
-        </div>
+    <form id="EditForm" action="edit" method="post" runat="server">
+        <h1>Update customer information</h1>
+        <div align="center">
+            <div>
+                <fieldset>
+                    <legend>Customer details</legend>
+                    <table>
+                        <tr>
+                            <td class="formLabelCell">ID:</td>
+                            <td class="formValueCell">
+                                <input type="text" id="CustomerId" name="CustomerId" 
+                                    readonly value="@Model.CustomerId" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="formLabelCell">Contact:</td>
+                            <td class="formValueCell">
+                                <input type="text" id="ContactName" name="ContactName" 
+                                    value="@Model.ContactName"
+                                    class="{required:true, messages:{required:'Contact Name is required'}}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: right; padding-top: 10px">
+                                <input type="submit" value="Save" />
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </div>
 
-        <input type="hidden" id="HID_OriginalName" value="@Model.ContactName" />
+            <input type="hidden" id="HID_OriginalName" value="@Model.ContactName" />
 
-        <div class="actionPanel">
-            @Html.ActionLink(Server.HtmlDecode("&laquo; Back to customer list"), "List", "Customers")
-            <a href="#" onclick="cancelEdit();">Reset Edit &raquo;</a>
+            <div class="actionPanel">
+                @Html.ActionLink(Server.HtmlDecode("&laquo; Back to customer list"), "List", "Customers")
+                <a href="#" onclick="cancelEdit();">Reset Edit &raquo;</a>
+            </div>
         </div>
-    </div>
+    </form>
 End section
 
 @Section ScriptsContent
@@ -45,19 +50,8 @@ End section
             $("#ContactName").val(origVal);
         }
 
-        $("#btnSave").click(function () {
-            var contactName = $("#ContactName").val();
-            var url = '@Url.Action("Edit")?CustomerId=@Model.CustomerId&contactName=' + contactName;
-            $.post(url, null,
-                    function (result) {
-                        window.location = '@Url.Action("EditSuccess")?customerName=' + contactName;
-                    });
-
-            return false;
-        });
-
         $(function () {
-            $("#form1").validate();
+            $("#EditForm").validate();
         })
     </script>
 End Section

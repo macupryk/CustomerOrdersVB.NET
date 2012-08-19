@@ -35,7 +35,7 @@ End Section
         $(function () {
             $("#customerList").jqGrid({
                 width: "100%",
-                url: '/Customers/FillCustomersGrid',
+                url: 'FillCustomersGrid',
                 datatype: 'json',
                 jsonReader: { repeatitems: false },
                 mtype: 'GET',
@@ -75,12 +75,12 @@ End Section
         }
 
          function CustomerLink(cellValue, options, rowdata, action) {
-            return "<a href='/customers/browse/" + rowdata.CustomerId + 
+            return "<a href='Browse/" + rowdata.CustomerId + 
                 "' >" + rowdata.ContactName + "</a>";
         }
 
         function OrdersLink(cellValue, options, rowdata, action) {
-            return "<a href='/orders/process/" + rowdata.CustomerId +
+            return "<a href='../orders/process/" + rowdata.CustomerId +
                     "/" + rowdata.ContactName + "'>Orders</a>";
         } 
     </script>

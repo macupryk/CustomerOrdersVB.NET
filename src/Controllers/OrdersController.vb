@@ -24,29 +24,28 @@ Namespace Controllers
             Me._fulfillmentSvc = New Services.FulfillmentService
         End Sub
 
-        Function Process(customerId As String, customerName As String) As ActionResult
-            ViewData("ProcessOrdersFor") = "Orders for customer " & customerName
+        Function Process(customerId As String, contactName As String) As ActionResult
+            ViewData("ProcessOrdersFor") = "Orders for customer " & contactName
             ViewData("Process") = "On this screen you can see all orders that customer has. By clicking 'Process Orders' " &
                 "you can send service request to ship all unshipped orders for that customer."
 
             ViewData("CustomerId") = customerId
-            ViewData("CustomerName") = customerName
+            ViewData("ContactName") = contactName
 
             Dim model = Me._customerSvc.GetOrdersForCustomer(customerId)
             Return View(model)
         End Function
 
         Function FillOrdersGrid(customerId As String) As JsonResult
-            Dim pageIndex As Integer = CInt(Request.QueryString("page")) - 1
-            Dim pageSize As Integer = CInt(Request.QueryString("rows"))
+            Dim pageIndex As Integer = CInt(Request("page")) - 1   'jqGrid will pass the page in the querystring
+            Dim pageSize As Integer = CInt(Request("rows"))         'jqGrid will pass rows in the querystring
 
-            ' Dim customerId = Me.Request.QueryString("customerId").ToString
             Dim orders = Me._customerSvc.GetOrdersForCustomer(customerId)
             Return New JsonDotNetResult With {.Data = New Utils.PagedList(orders, orders.Count, pageIndex, pageSize)}
         End Function
 
         <HttpPost()>
-        Function Process(ByVal customerId As String) As ActionResult
+        Function Process() As ActionResult
             ' gather log4net output with small hack to get results...
             Dim repository As ILoggerRepository = LogManager.GetRepository()
             Dim appenders As IAppender() = repository.GetAppenders()
@@ -62,6 +61,7 @@ Namespace Controllers
             If appender IsNot Nothing Then
                 appender.Clear()
 
+                Dim customerId = CStr(Request("CustomerId"))
                 Me._fulfillmentSvc.ProcessCustomer(customerId)
                 Dim events As LoggingEvent() = appender.GetEvents()
                 Dim stringWriter As New IO.StringWriter()
@@ -75,10 +75,10 @@ Namespace Controllers
                 TempData("ProcessMessages") = "Nothing to process?"
             End If
 
-            Return New EmptyResult  'called this action from AJAX so just persist the TempData across the session
+            Return RedirectToAction("ProcessResult", New With {.contactName = CStr(Request("ContactName"))})
         End Function
 
-        Function ProcessResult() As ActionResult
+        Function ProcessResult(contactName As String) As ActionResult
             ViewData("ProcessMessages") = TempData("ProcessMessages")
             Return View()
         End Function

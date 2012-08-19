@@ -19,7 +19,7 @@ Public Class MvcApplication
     Shared Sub RegisterRoutes(ByVal routes As RouteCollection)
         routes.IgnoreRoute("{resource}.axd/{*pathInfo}")
 
-        RouteTable.Routes.RouteExistingFiles = True
+        'RouteTable.Routes.RouteExistingFiles = True
         AppRoutes.MapRoutes(RouteTable.Routes)
     End Sub
 
