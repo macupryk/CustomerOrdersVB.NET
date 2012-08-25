@@ -53,7 +53,7 @@ Namespace Controllers
         End Function
 
         Function EditSuccess(contactName As String) As ActionResult
-            ViewData("Message") = "Successful update for '" + contactName + "'."
+            ViewData("Message") = "Successful update for '" & contactName & "'."
             Return View()
         End Function
     End Class
