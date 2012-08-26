@@ -7,7 +7,6 @@ The example uses stored procedures created for a [MySQL][5] implementation of th
 
 TODO:
 * [Xunit][4] test examples
-* Actually use the .NET 4 routing conventions...
 
 [1]: http://nancyfx.org
 [2]: http://code.google.com/p/dapper-dot-net
