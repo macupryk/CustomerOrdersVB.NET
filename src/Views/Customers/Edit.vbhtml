@@ -10,14 +10,14 @@
                             <td class="formLabelCell">ID:</td>
                             <td class="formValueCell">
                                 <input type="text" id="CustomerId" name="CustomerId" 
-                                    readonly value="@Model.CustomerId" />
+                                    readonly value="@CTypeDynamic(Of String)(Model.CustomerId)" />
                             </td>
                         </tr>
                         <tr>
                             <td class="formLabelCell">Contact:</td>
                             <td class="formValueCell">
                                 <input type="text" id="ContactName" name="ContactName" 
-                                    value="@Model.ContactName"
+                                    value="@CTypeDynamic(Of String)(Model.ContactName)"
                                     class="{required:true, messages:{required:'Contact Name is required'}}" />
                             </td>
                         </tr>
@@ -30,7 +30,7 @@
                 </fieldset>
             </div>
 
-            <input type="hidden" id="HID_OriginalName" value="@Model.ContactName" />
+            <input type="hidden" id="HID_OriginalName" value="@CTypeDynamic(Of String)(Model.ContactName)" />
 
             <div class="actionPanel">
                 @Html.ActionLink(Server.HtmlDecode("&laquo; Back to customer list"), "List", "Customers")

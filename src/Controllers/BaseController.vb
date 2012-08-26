@@ -57,8 +57,6 @@ Namespace Controllers
                 Return "fr"
             ElseIf culture.StartsWith("ja") Then
                 Return "ja"
-            ElseIf culture.StartsWith("zh") Then
-                Return "zh"
             Else
                 Return "en"
             End If

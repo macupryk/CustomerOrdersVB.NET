@@ -7,13 +7,13 @@
                     <tr>
                         <td class="formLabelCell">ID:</td>
                         <td class="formValueCell">
-                            @Model.CustomerId
+                            @CTypeDynamic(Of String)(Model.CustomerId)
                         </td>
                     </tr>
                     <tr>
                         <td class="formLabelCell">Contact:</td>
                         <td class="formValueCell">
-                            @Model.ContactName
+                            @CTypeDynamic(Of String)(Model.ContactName)
                         </td>
                     </tr>
                 </table>
@@ -21,7 +21,7 @@
         </div>
         <div class="actionPanel">
             @Html.ActionLink(Server.HtmlDecode("&laquo; Back to customer list"), "List", "Customers")
-            @Html.ActionLink(Server.HtmlDecode("Edit Customer &raquo;"), "Edit", New With {.customerId = Model.CustomerId})
+            @Html.ActionLink(Server.HtmlDecode("Edit Customer &raquo;"), "Edit", New With {.customerId = CTypeDynamic(Of String)(Model.CustomerId)})
         </div>
     </div>
 End Section
