@@ -47,4 +47,4 @@ buildlog.txt
 packages
 
 #Sql
-*.sql
+#*.sql
