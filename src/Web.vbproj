@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4A41CD7F-2D36-4577-AA32-6393EFC6AF7D}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>App</RootNamespace>
+    <AssemblyName>App</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>App.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>App.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Log4Net">
+      <HintPath>..\packages\Common.Logging.Log4Net.2.0.1\lib\net20\Common.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.10\lib\net40\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySql.Data.6.5.4\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\BaseController.vb" />
+    <Compile Include="Controllers\CustomersController.vb" />
+    <Compile Include="Controllers\HomeController.vb" />
+    <Compile Include="Controllers\OrdersController.vb" />
+    <Compile Include="Core\DataAccessObjects.vb" />
+    <Compile Include="Core\Models.vb" />
+    <Compile Include="Core\Services.vb" />
+    <Compile Include="Core\Utils.vb" />
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="JsonDotNetResult.vb" />
+    <Compile Include="AppRoutes.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="i18n\AppStrings.en.resx" />
+    <EmbeddedResource Include="i18n\AppStrings.fr.resx" />
+    <EmbeddedResource Include="i18n\AppStrings.es.resx" />
+    <EmbeddedResource Include="i18n\AppStrings.de.resx" />
+    <EmbeddedResource Include="i18n\AppStrings.ja.resx" />
+    <EmbeddedResource Include="i18n\AppStrings.zh.resx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Config\Web.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Content\Images\required.png" />
+    <Content Include="Content\Scripts\Common.js" />
+    <Content Include="Content\Scripts\jqGrid\Changes.txt" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-ar.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-bg.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-bg1251.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-cat.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-cn.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-cs.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-da.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-de.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-el.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-en.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-es.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-fa.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-fi.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-fr.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-gl.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-he.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-hr.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-hr1250.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-hu.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-is.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-it.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-ja.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-lt.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-mne.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-nl.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-no.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-pl.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-pt-br.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-pt.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-ro.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-ru.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-sk.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-sr-latin.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-sr.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-sv.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-th.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-tr.js" />
+    <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-ua.js" />
+    <Content Include="Content\Scripts\jqGrid\install.txt" />
+    <Content Include="Content\Scripts\jqGrid\jquery-1.5.2.min.js" />
+    <Content Include="Content\Scripts\jqGrid\jquery.jqGrid.min.js" />
+    <Content Include="Content\Scripts\jqGrid\jquery.jqGrid.src.js" />
+    <Content Include="Content\Scripts\jqGrid\plugins\grid.addons.js" />
+    <Content Include="Content\Scripts\jqGrid\plugins\grid.postext.js" />
+    <Content Include="Content\Scripts\jqGrid\plugins\grid.setcolumns.js" />
+    <Content Include="Content\Scripts\jqGrid\plugins\jquery.contextmenu.js" />
+    <Content Include="Content\Scripts\jqGrid\plugins\jquery.searchFilter.js" />
+    <Content Include="Content\Scripts\jqGrid\plugins\jquery.tablednd.js" />
+    <Content Include="Content\Scripts\jqGrid\plugins\searchFilter.css" />
+    <Content Include="Content\Scripts\jqGrid\plugins\ui.multiselect.css" />
+    <Content Include="Content\Scripts\jqGrid\plugins\ui.multiselect.js" />
+    <Content Include="Content\Scripts\sugar-1.2.4.min.js" />
+    <Content Include="Content\Styles\Site.css" />
+    <Content Include="Views\Shared\_Layout.vbhtml" />
+    <Content Include="Views\_ViewStart.vbhtml" />
+    <Content Include="Views\Shared\Error.vbhtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Config\log4net-config.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\favicon.ico" />
+    <Content Include="Content\Scripts\jquery.metadata.min.js" />
+    <Content Include="Content\Styles\jqGrid\ellipsis-xbl.xml" />
+    <Content Include="Content\Styles\jqGrid\ui.jqgrid.css" />
+    <Content Include="Global.asax" />
+    <None Include="Views\Customers\Browse.vbhtml" />
+    <None Include="Views\Customers\Edit.vbhtml" />
+    <None Include="Views\Customers\EditSuccess.vbhtml" />
+    <Content Include="Views\Home\About.vbhtml" />
+    <Content Include="Views\Customers\Index.vbhtml" />
+    <None Include="Views\Home\Index.vbhtml" />
+    <None Include="Views\Customers\List.vbhtml" />
+    <None Include="Views\Orders\Process.vbhtml" />
+    <None Include="Views\Orders\ProcessResult.vbhtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>59437</DevelopmentServerPort>
+          <DevelopmentServerVPath>/MyApp</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+</Project>
