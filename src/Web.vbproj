@@ -142,9 +142,7 @@
     <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-fr.js" />
     <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-ja.js" />
     <Content Include="Content\Scripts\jqGrid\install.txt" />
-    <Content Include="Content\Scripts\jqGrid\jquery-1.5.2.min.js" />
     <Content Include="Content\Scripts\jqGrid\jquery.jqGrid.min.js" />
-    <Content Include="Content\Scripts\jqGrid\jquery.jqGrid.src.js" />
     <Content Include="Content\Scripts\jqGrid\plugins\grid.addons.js" />
     <Content Include="Content\Scripts\jqGrid\plugins\grid.postext.js" />
     <Content Include="Content\Scripts\jqGrid\plugins\grid.setcolumns.js" />
