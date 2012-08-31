@@ -83,10 +83,7 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\BaseController.vb" />
-    <Compile Include="Controllers\CustomersController.vb" />
-    <Compile Include="Controllers\HomeController.vb" />
-    <Compile Include="Controllers\OrdersController.vb" />
+    <Compile Include="Controllers.vb" />
     <Compile Include="Core\DataAccessObjects.vb" />
     <Compile Include="Core\Models.vb" />
     <Compile Include="Core\Services.vb" />
@@ -172,15 +169,15 @@
     <Content Include="Content\Styles\jqGrid\ellipsis-xbl.xml" />
     <Content Include="Content\Styles\jqGrid\ui.jqgrid.css" />
     <Content Include="Global.asax" />
-    <None Include="Views\Customers\Browse.vbhtml" />
-    <None Include="Views\Customers\Edit.vbhtml" />
-    <None Include="Views\Customers\EditSuccess.vbhtml" />
-    <Content Include="Views\Home\About.vbhtml" />
-    <Content Include="Views\Customers\Index.vbhtml" />
-    <None Include="Views\Home\Index.vbhtml" />
-    <None Include="Views\Customers\List.vbhtml" />
-    <None Include="Views\Orders\Process.vbhtml" />
-    <None Include="Views\Orders\ProcessResult.vbhtml" />
+    <None Include="Views\CustomersBrowse.vbhtml" />
+    <None Include="Views\CustomersEdit.vbhtml" />
+    <None Include="Views\CustomersEditSuccess.vbhtml" />
+    <Content Include="Views\About.vbhtml" />
+    <Content Include="Views\CustomersIndex.vbhtml" />
+    <None Include="Views\Index.vbhtml" />
+    <None Include="Views\CustomersList.vbhtml" />
+    <None Include="Views\OrdersProcess.vbhtml" />
+    <None Include="Views\OrdersProcessResult.vbhtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
