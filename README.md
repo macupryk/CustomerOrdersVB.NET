@@ -9,7 +9,7 @@ The example uses stored procedures created for a [MySQL][5] implementation of th
 TODO:
 * [Xunit][4] test examples
 
-[1]: http://nancyfx.org
+[1]: http://www.asp.net/mvc/mvc3
 [2]: http://code.google.com/p/dapper-dot-net
 [3]: https://github.com/SpringSource/spring-net/tree/master/examples/Spring/Spring.Data.NHibernate.Northwind 
 [4]: http://xunit.codeplex.com 
