@@ -105,7 +105,11 @@ AppCommon.prototype = {
     },
 
     GetCharCount: function (str, c) {
+<<<<<<< HEAD
         if (str) { return (str.length - str.replace(new RegExp(c, "g"), '').length) / c.length; }
+=======
+        return (str.length - str.replace(new RegExp(c, "g"), '').length) / c.length;
+>>>>>>> aacfeaa21ead6c98aa0c480189e2b7742d28d849
     },
 
     // Define Modal windows
