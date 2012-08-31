@@ -47,8 +47,4 @@ buildlog.txt
 packages
 
 #Sql
-<<<<<<< HEAD
 #*.sql
-=======
-*.sql
->>>>>>> aacfeaa21ead6c98aa0c480189e2b7742d28d849
