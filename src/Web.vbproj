@@ -152,7 +152,6 @@
     <Content Include="Content\Scripts\jqGrid\plugins\searchFilter.css" />
     <Content Include="Content\Scripts\jqGrid\plugins\ui.multiselect.css" />
     <Content Include="Content\Scripts\jqGrid\plugins\ui.multiselect.js" />
-    <Content Include="Content\Scripts\sugar-1.2.4.min.js" />
     <Content Include="Content\Styles\Site.css" />
     <Content Include="Views\Shared\_Layout.vbhtml" />
     <Content Include="Views\_ViewStart.vbhtml" />

@@ -42,7 +42,6 @@ End section
 
 @Section ScriptsContent
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/Scripts/jquery.metadata.min.js")"></script>
     <script type="text/javascript" >
         function cancelEdit() {
