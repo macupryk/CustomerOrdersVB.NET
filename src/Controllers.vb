@@ -87,6 +87,8 @@ Namespace Controllers
             Return Me.RenderView(Of Object)(view, Nothing)
         End Function
     End Class
+    
+    '////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Public Class CustomersController
         Inherits BaseController
@@ -139,6 +141,8 @@ Namespace Controllers
             Return RenderView("EditSuccess.vbhtml")
         End Function
     End Class
+    
+    '////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Public Class HomeController
         Inherits BaseController
@@ -159,6 +163,8 @@ Namespace Controllers
             Return RenderView("About.vbhtml")
         End Function
     End Class
+    
+    '////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Public Class OrdersController
         Inherits BaseController

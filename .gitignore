@@ -47,4 +47,9 @@ buildlog.txt
 packages
 
 #Sql
-#*.sql
+*.sql
+
+# UpgradeFiles
+Backup
+UpgradeLog.*
+_UpgradeReport_Files
