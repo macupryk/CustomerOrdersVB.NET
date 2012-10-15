@@ -10,7 +10,17 @@
     <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Content/Styles/Site.css")" />
     @RenderSection("StylesContent", required:=False)
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/sugar/1.3.4/sugar-1.3.4.min.js"></script> 
+    <script type="text/javascript" src="/content/scripts/Common.js"> </script>
+    <script type="text/javascript">
+        var _appCommon = null;              //our global object
+
+        $(function () {
+            _appCommon = new AppCommon;
+        });
+    </script>
 </head>
 <body>
     <div class="page">
@@ -37,16 +47,6 @@
     </div>
     <span style="position: absolute">
         @*<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>*@
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/sugar/1.3/sugar.min.js"></script>  
-        <script type="text/javascript" src="@Url.Content("~/Content/Scripts/Common.js")"></script>
-        <script type="text/javascript">
-            var _appCommon = null;              //our global object
-
-            $(function () {
-                _appCommon = new AppCommon();
-            });
-        </script>
         @RenderSection("ScriptsContent", required:=False)
     </span>
 </body>

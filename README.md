@@ -2,7 +2,7 @@
 CustomerOrders-ASPNET-MVC3-VB
 =============================
 
-Example application using [ASP.NET Mvc3][1] and [Dapper][2].  Adapted from a [Spring.NET example application][3].  Written in VB 10 and distributed under the [Apache license version 2][6].  Includes 
+Example application using [ASP.NET Mvc3][1] and [Dapper][2].  Adapted from a [Spring.NET example application][3].  Written in VB 10 and distributed under the [Apache license version 2][6].
 
 Notes:
 * Stored procedures created for a [MySQL][5] and SQL Server 2005/2008/2012 implementation of the Northwind database.  
