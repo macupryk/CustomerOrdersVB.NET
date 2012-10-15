@@ -18,7 +18,7 @@
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>True</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <FileUpgradeFlags>
@@ -26,6 +26,10 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -159,6 +163,7 @@
     <Content Include="Content\Scripts\jqGrid\plugins\ui.multiselect.css" />
     <Content Include="Content\Scripts\jqGrid\plugins\ui.multiselect.js" />
     <Content Include="Content\Styles\Site.css" />
+    <Content Include="tests.py" />
     <Content Include="Views\Shared\_Layout.vbhtml" />
     <Content Include="Views\_ViewStart.vbhtml" />
     <Content Include="Views\Shared\Error.vbhtml" />
@@ -214,7 +219,7 @@
   </Target>
   <ProjectExtensions>
     <VisualStudio>
-      <FlavorProperties GUID="{349C5851-65DF-11DA-9384-00065B846F21}">
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>False</AutoAssignPort>

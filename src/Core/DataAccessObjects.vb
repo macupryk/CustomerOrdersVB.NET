@@ -50,6 +50,10 @@ Namespace Core.DataAccess
     Public Class CustomersDao
         Inherits DataAccessObject(Of Models.Customer)
 
+        Sub New(connName As String, connStr As String, providerName As String)
+            MyBase.New(New ConnectionStringSettings(connName, connStr, providerName))
+        End Sub
+
         Sub New()
             MyBase.New(ConfigurationManager.ConnectionStrings("Northwind"))
         End Sub
@@ -86,6 +90,10 @@ Namespace Core.DataAccess
 
     Public Class OrdersDao
         Inherits DataAccessObject(Of Models.Order)
+
+        Sub New(connName As String, connStr As String, providerName As String)
+            MyBase.New(New ConnectionStringSettings(connName, connStr, providerName))
+        End Sub
 
         Sub New()
             MyBase.New(ConfigurationManager.ConnectionStrings("Northwind"))
