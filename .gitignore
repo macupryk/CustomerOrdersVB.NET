@@ -23,6 +23,7 @@ _ReSharper*/
 *.resharper
 [Tt]est[Rr]esult*
 *.dotCover
+*.userprefs
 
 #Project files
 [Bb]uild/
@@ -45,9 +46,6 @@ buildlog.txt
 
 #NuGet
 packages
-
-#Sql
-*.sql
 
 # UpgradeFiles
 Backup
