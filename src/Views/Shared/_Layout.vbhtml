@@ -12,15 +12,15 @@
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/sugar/1.3.4/sugar-1.3.4.min.js"></script> 
-    <script type="text/javascript" src="@Url.Content("~/Content/scripts/Common.js")%>"> </script>
-    <script type="text/javascript">
-        var _appCommon = null;              //our global object
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/sugar/1.3.4/sugar-1.3.4.min.js"></script>
+        <script type="text/javascript" src="@Url.Content("~/Content/Scripts/Common.js")"> </script>
+        <script type="text/javascript">
+            var _appCommon = null;              //our global object
 
-        $(function () {
-            _appCommon = new AppCommon;
-        });
-    </script>
+            $(function () {
+                _appCommon = AppCommon;
+            });
+        </script>
 </head>
 <body>
     <div class="page">
@@ -46,7 +46,7 @@
         </div>
     </div>
     <span style="position: absolute">
-        @*<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>*@
+        @*<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>*@ 
         @RenderSection("ScriptsContent", required:=False)
     </span>
 </body>

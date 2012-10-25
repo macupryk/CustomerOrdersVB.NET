@@ -53,7 +53,7 @@ End Section
                 caption: 'Orders',
                 height: 'auto',
                 loadError: function (jqXHR, textStatus, errorThrown) {
-                    _appCommon.JqGridLoadError(this, jqXHR, textStatus, errorThrown);
+                    _appCommon.jqGridLoadError(this, jqXHR, textStatus, errorThrown);
                 },
                 loadComplete: function () {
                     // remove error div if exist
@@ -63,7 +63,7 @@ End Section
         });
 
         function FormatDate(cellValue, options, rowdata, action) {
-            return _appCommon.FormatJSONDate(rowdata.OrderDate);
+            return _appCommon.formatJSONDate(rowdata.OrderDate);
         }
     </script>  
 End Section

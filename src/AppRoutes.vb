@@ -7,7 +7,7 @@ Public Class AppRoutes
             "HomeRoute",
             "Home",
             New With {.controller = "Home", .action = "Index"}
-        )
+            )
         routes.MapRoute(
             "AboutRoute",
             "About",
@@ -47,6 +47,11 @@ Public Class AppRoutes
             "OrdersGridRoute",
             "Orders/FillOrdersGrid/{customerId}",
             New With {.controller = "Orders", .action = "FillOrdersGrid", .customerId = String.Empty}
+        )
+        routes.MapRoute(
+            "TestRoute",
+            "Test/{name}",
+            New With {.controller = "Home", .action = "Test", .name = String.Empty}
         )
         routes.MapRoute(
             "DefaultRoute",

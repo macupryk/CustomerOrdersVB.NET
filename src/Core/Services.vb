@@ -1,12 +1,14 @@
-﻿Imports System
-Imports System.Collections.Generic
+﻿Imports System.Collections.Generic
 Imports System.Configuration
 Imports System.Linq
+Imports System.Text
+
+Imports Dapper
+Imports Dapper.Contrib.Extensions
 
 Imports log4net
 
 Imports App.Core
-Imports System.Text
 
 Namespace Core.Services
     Public Interface IShippingService

@@ -55,7 +55,7 @@ End Section
                 viewrecords: true,
                 caption: 'Customers',
                 loadError: function (jqXHR, textStatus, errorThrown) {
-                    _appCommon.JqGridLoadError(this, jqXHR, textStatus, errorThrown);
+                    _appCommon.jqGridLoadError(this, jqXHR, textStatus, errorThrown);
                 },
                 loadComplete: function () {
                     // remove error div if exist
@@ -67,7 +67,7 @@ End Section
         function GetClassification(cellValue, options, rowdata, action) {
             //just a simple classification for the example
             //calculate based on customer's A alphabet count
-            var aCount = _appCommon.GetCharCount(rowdata.ContactName, 'a');
+            var aCount = _appCommon.getCharCount(rowdata.ContactName, 'a');
             if (aCount > 4) { return 'A'; }   //great customer!
             if (aCount > 1) { return 'B'; }   //ok...
                 

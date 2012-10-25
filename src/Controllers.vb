@@ -162,6 +162,16 @@ Namespace Controllers
             ViewData("Home") = "About"
             Return RenderView("About.vbhtml")
         End Function
+
+        Function Test() As ActionResult
+            Return RenderView("Test.vbhtml")
+        End Function
+
+        <HttpPost>
+        Function Test(name As String) As ActionResult
+
+            Return RenderView("Test.vbhtml")
+        End Function
     End Class
     
     '////////////////////////////////////////////////////////////////////////////////////////////////////////////
