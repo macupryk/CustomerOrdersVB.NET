@@ -1,10 +1,13 @@
-﻿Imports System
+﻿Imports System.IO
 Imports System.Linq
+Imports System.Reflection
 Imports System.Text
 
 Imports System.Web.Mvc
 Imports System.Web.Routing
-Imports System.IO
+
+Imports Ninject.Web.Common
+Imports Ninject
 
 Public Class MvcApplication
     Inherits System.Web.HttpApplication
@@ -15,6 +18,12 @@ Public Class MvcApplication
     Shared Sub RegisterGlobalFilters(ByVal filters As GlobalFilterCollection)
         filters.Add(New HandleErrorAttribute())
     End Sub
+
+    Protected Function CreateKernel() As IKernel
+        Dim kernel = New StandardKernel()
+        kernel.Load(Assembly.GetExecutingAssembly())   'load all Ninject Moduldes in the assembly
+        Return kernel
+    End Function
 
     Shared Sub RegisterRoutes(ByVal routes As RouteCollection)
         routes.IgnoreRoute("{resource}.axd/{*pathInfo}")

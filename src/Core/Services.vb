@@ -4,7 +4,6 @@ Imports System.Linq
 Imports System.Text
 
 Imports Dapper
-Imports Dapper.Contrib.Extensions
 
 Imports log4net
 

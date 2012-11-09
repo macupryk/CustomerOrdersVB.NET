@@ -168,13 +168,14 @@ var AppCommon = new function () {
     };
 
     this.jqGridLoadError = function (grid, jqXHR, textStatus, errorThrown) {
+        debugger;
         // remove error div if exist
         $('#' + grid.id + '_err').remove();
         // insert div with the error description before the grid
         $('#' + grid.id).closest('div.ui-jqgrid').before(
                         '<div id="' + grid.id + '_err" style="max-width:' + grid.style.width +
                         ';"><div class="ui-state-error ui-corner-all" style="padding:0.7em;float:left;"><span class="ui-icon ui-icon-alert" style="float:left; margin-right: .3em;"></span><span style="clear:left">' +
-		                AppCommon.prototype.DecodeErrorMessage(jqXHR, textStatus, errorThrown) + '</span></div><div style="clear:left"/></div>');
+		                $(this)[0].decodeErrorMessage(jqXHR, textStatus, errorThrown) + '</span></div><div style="clear:left"/></div>');
     };
 
     this.decodeErrorMessage = function (jqXHR, errorThrown, errorMsg) {
@@ -192,6 +193,6 @@ var AppCommon = new function () {
             html = jqXHR.status + " - " + jqXHR.statusText;
         }
 
-        this.MessageBox('divErrorMessage', errorThrown, null, html, null);
+        $(this)[0].messageBox('divErrorMessage', errorThrown, null, html, null);
     };
 };
