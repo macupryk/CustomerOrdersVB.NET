@@ -30,9 +30,13 @@ End Section
 
     <script type="text/javascript" src="@Url.Content(jqGridLocale)"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/Scripts/jqGrid/jquery.jqGrid.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Scripts/orders_process.js")"></script>
   
     <script type="text/javascript">
+        var _ordersProcessJS = null;
         $(function () {
+            _ordersProcessJS = new OrdersProcessJS(_appCommon, '@Request.ApplicationPath');
+
             $('#ordersList').jqGrid({
                 width: '100%',
                 url: '@Request.ApplicationPath/Orders/FillOrdersGrid/@ViewData("CustomerId")',
@@ -42,8 +46,8 @@ End Section
                 colNames: ['Id', 'Ordered', 'Shipped'],
                 colModel: [
                   { name: 'OrderId', index: 'OrderId', width: 50, align: 'left' },
-                  { name: 'OrderDate', index: 'OrderDate', width: 250, align: 'left', sortable: true, formatter: FormatDate },
-                  { name: 'ShippedDate', index: 'ShippedDate', width: 250, align: 'left', sortable: true, formatter: FormatDate}],
+                  { name: 'OrderDate', index: 'OrderDate', width: 250, align: 'left', sortable: true, formatter: _ordersProcessJS.FormatDate },
+                  { name: 'ShippedDate', index: 'ShippedDate', width: 250, align: 'left', sortable: true, formatter: _ordersProcessJS.FormatDate }],
                 pager: $('#pager'),
                 rowNum: 10,
                 rowList: [5, 10, 20, 50],
@@ -61,10 +65,6 @@ End Section
                 }
             });
         });
-
-        function FormatDate(cellValue, options, rowdata, action) {
-            return _appCommon.formatJSONDate(rowdata.OrderDate);
-        }
     </script>  
 End Section
 

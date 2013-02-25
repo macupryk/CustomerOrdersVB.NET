@@ -164,9 +164,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Start\NinjectWebCommon.cs" />
     <Content Include="Content\Config\Web.config" />
     <Content Include="App_Data\northwind.db" />
+    <Content Include="Content\Scripts\orders_process.js" />
+    <Content Include="Content\Scripts\customers_list.js" />
     <Content Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -183,7 +184,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <Content Include="Content\Images\required.png" />
-    <Content Include="Content\Scripts\Common.js" />
+    <Content Include="Content\Scripts\common.js" />
     <Content Include="Content\Scripts\jqGrid\Changes.txt" />
     <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-de.js" />
     <Content Include="Content\Scripts\jqGrid\i18n\grid.locale-en.js" />

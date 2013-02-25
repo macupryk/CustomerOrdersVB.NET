@@ -30,9 +30,12 @@ End Section
 
     <script type="text/javascript" src="@Url.Content(jqGridLocale)"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/Scripts/jqGrid/jquery.jqGrid.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Scripts/customers_list.js")"></script>
   
     <script type="text/javascript">
+        var _customersListJS = null;
         $(function () {
+            _customersListJS = new CustomersListJS(_appCommon, '@Request.ApplicationPath');
             $("#customerList").jqGrid({
                 width: "100%",
                 url: '@Request.ApplicationPath/Customers/FillCustomersGrid',
@@ -42,10 +45,10 @@ End Section
                 colNames: ['Id', 'Contact', 'Company', 'Class', ''],
                 colModel: [
                   { name: 'CustomerId', index: 'CustomerId', width: 50, align: 'left' },
-                  { name: 'ContactName', index: 'ContactName', width: 250, align: 'left', sortable: true, formatter: CustomerLink },
+                  { name: 'ContactName', index: 'ContactName', width: 250, align: 'left', sortable: true, formatter: _customersListJS.customerLink },
                   { name: 'CompanyName', index: 'CompanyName', width: 250, align: 'left', sortable: true },
-                  { name: 'Classification', index: 'Classification', width: 50, align: 'left', sortable: false, formatter: GetClassification },
-                  { name: 'Orders', width: 50, align: 'center', sortable: false, formatter: OrdersLink }
+                  { name: 'Classification', index: 'Classification', width: 50, align: 'left', sortable: false, formatter: _customersListJS.getClassification },
+                  { name: 'Orders', width: 50, align: 'center', sortable: false, formatter: _customersListJS.ordersLink }
                   ],
                 pager: $('#pager'),
                 rowNum: 10,
@@ -63,25 +66,5 @@ End Section
                 }
             });
         });
-
-        function GetClassification(cellValue, options, rowdata, action) {
-            //just a simple classification for the example
-            //calculate based on customer's A alphabet count
-            var aCount = _appCommon.getCharCount(rowdata.ContactName, 'a');
-            if (aCount > 4) { return 'A'; }   //great customer!
-            if (aCount > 1) { return 'B'; }   //ok...
-                
-            return 'C';   //a really lousy customer
-        }
-
-         function CustomerLink(cellValue, options, rowdata, action) {
-             return "<a href='@Request.ApplicationPath/Customers/Browse/" + rowdata.CustomerId + 
-                "' >" + rowdata.ContactName + "</a>";
-        }
-
-        function OrdersLink(cellValue, options, rowdata, action) {
-            return "<a href='@Request.ApplicationPath/Orders/Process/" + rowdata.CustomerId +
-                    "/" + rowdata.ContactName + "'>Orders</a>";
-        } 
     </script>
 end section
