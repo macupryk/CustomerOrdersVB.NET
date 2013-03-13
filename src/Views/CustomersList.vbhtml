@@ -19,7 +19,8 @@ End Section
     <br />
     <div align="center">
         <table id="customerList" class="datagrid" cellpadding="0" cellspacing="0"></table>
-        <div id="pager" class="datagrid" style="text-align:center;"></div>
+        <div id="pager" class="datagrid" style="text-align:center;"></div><br />
+        <input type="button" id="btnExport" value="Export" />
     </div>
 End Section
 
@@ -41,6 +42,7 @@ End Section
                 url: '@Request.ApplicationPath/Customers/FillCustomersGrid',
                 datatype: 'json',
                 jsonReader: { repeatitems: false },
+                loadonce: true,     //needed to ensure sort works.  Basically will flip switch datatype: 'json' to datatype: 'local' for local sorting.
                 mtype: 'GET',
                 colNames: ['Id', 'Contact', 'Company', 'Class', ''],
                 colModel: [
@@ -55,6 +57,7 @@ End Section
                 rowList: [5, 10, 20, 50],
                 sortname: 'CustomerId',
                 sortorder: "asc",
+                height: 'auto',
                 viewrecords: true,
                 caption: 'Customers',
                 loadError: function (jqXHR, textStatus, errorThrown) {
@@ -65,6 +68,35 @@ End Section
                     $('#' + this.id + '_err').remove();
                 }
             });
+        });
+
+        $('#btnExport').click(function (e) {
+            var exportUrl = '@Request.ApplicationPath/Customers/Report';
+            $('<div id=\'messageBox_Export\'>Please choose export type:</div>').dialog(
+                {
+                    modal: true,
+                    title: 'Customers Report',
+                    show: 'slide', hide: 'slide',
+                    width: '350px',
+                    buttons: {
+                        'Excel': function () {
+                            $(this).dialog('close');
+                            window.location.href = exportUrl + '.xls';
+                        },
+                        'Html': function () {
+                            $(this).dialog('close');
+                            open(exportUrl + '.html', '', 'resizable,location,menubar,toolbar,scrollbars,status');
+                        },
+                        'PDF': function () {
+                            $(this).dialog('close');
+                            open(exportUrl + '.pdf', '', 'resizable,location,menubar,toolbar,scrollbars,status');
+                        },
+                        'Text': function () {
+                            $(this).dialog('close');
+                            window.location.href = exportUrl + '.txt';
+                        },
+                    }
+                });
         });
     </script>
 end section

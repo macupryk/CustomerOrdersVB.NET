@@ -53,6 +53,14 @@ Public Class AppRoutes
             "Test/{name}",
             New With {.controller = "Home", .action = "Test", .name = String.Empty}
         )
+
+        routes.MapRoute(
+            "CustomersReportRoute",
+            "Customers/Report.{extension}",
+            New With {.controller = "Customers", .action = "Report"},
+            New With {.extension = New DoddleReport.Web.ReportRouteConstraint}
+        )
+
         routes.MapRoute(
             "DefaultRoute",
             "{controller}/{action}",

@@ -26,8 +26,8 @@ Namespace Core.DataAccess
 
             If provider = "System.Data.SqlClient" Then
                 connection = New SqlClient.SqlConnection(connStr)
-                'ElseIf provider = "MySql.Data.MySqlClient" Then
-                '    connection = New MySql.Data.MySqlClient.MySqlConnection(connStr)
+            ElseIf provider = "MySql.Data.MySqlClient" Then
+                connection = New MySql.Data.MySqlClient.MySqlConnection(connStr)
             ElseIf provider = "System.Data.Sqlite" Then
                 connection = New SQLite.SQLiteConnection(connStr)
             End If

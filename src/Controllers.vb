@@ -16,6 +16,8 @@ Imports log4net.Core
 Imports log4net.Layout
 Imports log4net.Repository
 
+Imports DoddleReport
+
 Imports App.Core
 
 Namespace Controllers
@@ -125,6 +127,20 @@ Namespace Controllers
         Function Edit(customerId As String) As ActionResult
             Dim model = Me._customerSvc.GetCustomerById(customerId)
             Return RenderView("Edit.vbhtml", model)
+        End Function
+
+        Function Report() As DoddleReport.Web.ReportResult
+            Dim r = New DoddleReport.Report(Me._customerSvc.GetCustomers.ToReportSource)
+            r.RenderHints.Orientation = ReportOrientation.Landscape
+
+            'Text Fields
+            r.TextFields.Title = "Northwind Customers Report"
+            r.TextFields.Header = String.Format("Report Generated: {0}", DateTime.Now)
+            r.TextFields.Footer = "Copyright " & DateTime.Now.Year & " &copy; Your Fake Company, USA."
+
+            r.DataFields("Orders").Hidden = True
+
+            Return New DoddleReport.Web.ReportResult(r)
         End Function
 
         <HttpPost()> _
