@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{19055515-9
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Web", "src\Web.vbproj", "{4A41CD7F-2D36-4577-AA32-6393EFC6AF7D}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Web", "src\Web.vbproj", "{A1795747-B38F-4B06-97BE-6E0712E5DC49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +23,12 @@ Global
 		Release|MCD = Release|MCD
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4A41CD7F-2D36-4577-AA32-6393EFC6AF7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A41CD7F-2D36-4577-AA32-6393EFC6AF7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A41CD7F-2D36-4577-AA32-6393EFC6AF7D}.Debug|MCD.ActiveCfg = Debug|Any CPU
-		{4A41CD7F-2D36-4577-AA32-6393EFC6AF7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A41CD7F-2D36-4577-AA32-6393EFC6AF7D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4A41CD7F-2D36-4577-AA32-6393EFC6AF7D}.Release|MCD.ActiveCfg = Release|Any CPU
+		{A1795747-B38F-4B06-97BE-6E0712E5DC49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1795747-B38F-4B06-97BE-6E0712E5DC49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1795747-B38F-4B06-97BE-6E0712E5DC49}.Debug|MCD.ActiveCfg = Debug|Any CPU
+		{A1795747-B38F-4B06-97BE-6E0712E5DC49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1795747-B38F-4B06-97BE-6E0712E5DC49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1795747-B38F-4B06-97BE-6E0712E5DC49}.Release|MCD.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
