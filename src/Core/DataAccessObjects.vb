@@ -53,8 +53,15 @@ Namespace Core.DataAccess
         End Function
     End Class
 
+    Public Interface ICustomersDao
+        Function [Get](id As String) As Models.Customer
+        Function GetAll() As IList(Of Models.Customer)
+        Function Update(customer As Models.Customer) As Boolean
+    End Interface
+
     Public Class CustomersDao
         Inherits DataAccessObject(Of Models.Customer)
+        Implements ICustomersDao
 
         Sub New(connName As String, connStr As String, providerName As String)
             MyBase.New(New ConnectionStringSettings(connName, connStr, providerName))
@@ -64,18 +71,18 @@ Namespace Core.DataAccess
             MyBase.New(ConfigurationManager.ConnectionStrings("Northwind"))
         End Sub
 
-        Public Function [Get](id As String) As Models.Customer
+        Public Function [Get](id As String) As Models.Customer Implements ICustomersDao.Get
             Dim paramsList = New DynamicParameters
             paramsList.Add("@CustomerId", id)
 
             Return Me.GetModelData("select * from customers where CustomerId = @CustomerId", paramsList)(0)
         End Function
 
-        Public Function GetAll() As IList(Of Models.Customer)
+        Public Function GetAll() As IList(Of Models.Customer) Implements ICustomersDao.GetAll
             Return Me.GetModelData("select * from Customers")
         End Function
 
-        Public Function Update(customer As Models.Customer) As Boolean
+        Public Function Update(customer As Models.Customer) As Boolean Implements ICustomersDao.Update
             Dim paramsList = New DynamicParameters
             paramsList.Add("@CustomerId", customer.CustomerId)
             paramsList.Add("@CompanyName", customer.CompanyName)
@@ -99,8 +106,14 @@ Namespace Core.DataAccess
         End Function
     End Class
 
+    Public Interface IOrdersDao
+        Function GetAllForCustomer(customerId As String) As IList(Of Models.Order)
+        Function Update(order As Models.Order) As Boolean
+    End Interface
+
     Public Class OrdersDao
         Inherits DataAccessObject(Of Models.Order)
+        Implements IOrdersDao
 
         Sub New(connName As String, connStr As String, providerName As String)
             MyBase.New(New ConnectionStringSettings(connName, connStr, providerName))
@@ -110,29 +123,19 @@ Namespace Core.DataAccess
             MyBase.New(ConfigurationManager.ConnectionStrings("Northwind"))
         End Sub
 
-        Public Function GetAllForCustomer(customerId As String) As IList(Of Models.Order)
+        Public Function GetAllForCustomer(customerId As String) As IList(Of Models.Order) Implements IOrdersDao.GetAllForCustomer
             Dim paramsList = New DynamicParameters
             paramsList.Add("@CustomerId", customerId)
 
             Return Me.GetModelData("select * from Orders where CustomerId = @CustomerId", paramsList)
         End Function
 
-        Public Function Update(order As Models.Order) As Boolean
+        Public Function Update(order As Models.Order) As Boolean Implements IOrdersDao.Update
             Dim paramsList = New DynamicParameters
+            paramsList.Add("@ShippedDate", order.ShippedDate)
             paramsList.Add("@OrderId", order.OrderId)
-            paramsList.Add("@CustomerId", order.CustomerId)
-            paramsList.Add("@Freight", order.Freight)
-            paramsList.Add("@ShipName", order.ShipName)
-            paramsList.Add("@ShipAddress", order.ShipAddress)
-            paramsList.Add("@ShipCity", order.ShipCity)
-            paramsList.Add("@ShipRegion", order.ShipRegion)
-            paramsList.Add("@ShipPostalCode", order.ShipPostalCode)
-            paramsList.Add("@ShipCountry", order.ShipCountry)
 
-            Dim query = "update Orders set CustomerId = @CustomerId, Freight = @Freight, " &
-                            "ShipName = @ShipName, ShipAddress = @ShipAddress, ShipCity = @ShipCity" &
-                            "ShipRegion = @ShipRegion, ShipPostalCode = @ShipPostal, " &
-                            "ShipCountry = @ShipCountry"
+            Dim query = "update Orders set ShippedDate = @ShippedDate where OrderId = @OrderId"
 
             Dim ret = CBool(Me.ExecuteDataManipulation(query, paramsList))
             Return (ret = 1)
